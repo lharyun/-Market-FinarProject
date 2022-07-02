@@ -141,7 +141,12 @@
 
 
     /* ==================== */
-
+	 .logo2{
+	        position: fixed;
+	        bottom: 60px;
+	        right:10px;
+	        z-index: 2;
+	    }
     /* 푸터 */
 
     .middle {
@@ -187,6 +192,7 @@
 
         #searchBox {
             width: 300px;
+            height:40px;
         }
 
         .font_a {
@@ -256,29 +262,31 @@
                     </div>
                     <div class="col d-flex justify-content-end">
                         <ul class="nav">
-                            <li class="nav-item">
-                                <a class="nav-link" href="/member/toLogin">로그인/회원가입</a>
-                            </li>
+                      		  <!-- 로그인 안했을경우-->
+                        	<c:if test="${empty loginSession}">
+	                            <li class="nav-item">
+	                                <a class="nav-link" href="/member/toLogin">로그인/회원가입</a>
+	                            </li>
+                            </c:if>
 
-                            <!-- 로그인했을경우 띄우기 -->
-                            <!-- <li class="nav-item">
-                                <a class="nav-link" href="/member/toLogout">로그아웃</a>
-                             </li>
-                            <li class="nav-item dropdown">
-                                
-                                <a class="nav-link dropdown-toggle" href="/mypage/toMyStore" data-bs-toggle="dropdown" aria-expanded="false">내 상점</a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="/mypage/toMyStore">내 상품</a></li>
-                                    <li><a class="dropdown-item" href="/mypage/toBasket">찜한 상품</a></li>
-                                    <li><a class="dropdown-item" href="/mypage/toMypageModify">계정 설정</a></li>
-                                </ul>
-                            </li> -->
+                            <!-- 로그인했을경우-->
+                            <c:if test="${not empty loginSession}">
+	                            <li class="nav-item">
+	                                <a class="nav-link" href="/member/toLogout">로그아웃</a>
+	                             </li>
+	                            <li class="nav-item dropdown">
+	                                
+	                                <a class="nav-link dropdown-toggle" href="/mypage/toMyStore" data-bs-toggle="dropdown" aria-expanded="false">내 상점</a>
+	                                <ul class="dropdown-menu">
+	                                    <li><a class="dropdown-item" href="/mypage/toMyStore">내 상품</a></li>
+	                                    <li><a class="dropdown-item" href="/mypage/toBasket">찜한 상품</a></li>
+	                                    <li><a class="dropdown-item" href="/mypage/toMypageModify">계정 설정</a></li>
+	                                </ul>
+	                            </li> 
+                            </c:if>
 
                             <li class="nav-item">
                                 <a class="nav-link" href="/mypage/toMyStore">내 상점</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/client/toClient_post">고객 센터</a>
                             </li>
                         </ul>
                     </div>
@@ -290,7 +298,7 @@
             <div class="row align-items-center m-0 heder_middleBox">
                 <!-- 비반응 -->
                 <div>
-                    <div class="row align-items-center p-0 heder_middle" id="Non_reaction">
+                    <div class="row p-0 heder_middle" id="Non_reaction">
                         <div class="col-3 pe-0">
                             <a href="/post/toPost" class="mb-2 mb-lg-0">
                                 <img src="/resources/images/header_pooter/로고.png" height="40px" alt="로고이미지">
@@ -892,6 +900,11 @@
 
 
     <!-- footer -->
+     <div class="logo2">
+        <a class="nav-link" href="/client/toClient_post">
+            <img src="/resources/images/header_pooter/고객게시판.png">
+         </a>
+    </div>
     <footer class="py-4 text-light">
         <div class="container" id="footerBox">
             <div class="row pooterLine pb-3">
