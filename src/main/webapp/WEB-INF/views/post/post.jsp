@@ -155,6 +155,9 @@
 
     footer {
         background-color: #495057;
+        position: absolute;
+        bottom:0;
+        width:100%; 
     }
 
 
@@ -894,7 +897,7 @@
 
     <!-- Contents -->
     <!-- 시작하기전 밑에 middle 스타일 제거해주세용 -->
-    <div class="container middle" style="height: 500px;">
+    <div class="container middle" style="height: 1500px">
 
     </div>
 
